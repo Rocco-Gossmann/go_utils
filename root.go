@@ -10,10 +10,15 @@ import (
 )
 
 const DATETIME_PRINT = "02. Jan. 2006 15:04"
+const CLEAR_CMD_LINE_SEQ = "\033[2K\r"
 
 type ControlledPanic struct {
 	Msg      string
 	ExitCode int
+}
+
+func Panicf(statement string, args ...any) {
+	panic(fmt.Sprintf(statement, args...))
 }
 
 func Exitf(statement string, args ...any) {
