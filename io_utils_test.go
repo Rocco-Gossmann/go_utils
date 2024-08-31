@@ -33,4 +33,9 @@ func TestCopyWithProgress(t *testing.T) {
 
 	})
 
+	t.Run("test If - function", func(t *testing.T) {
+		assert.Equal(t, go_utils.If(true, 1, 2), 1, "If(true, 1, 2)  should have equaled 1")
+		assert.Equal(t, go_utils.If(false, 1, 2), 2, "If(false, 1, 2)  should have equaled 2")
+	})
+
 }

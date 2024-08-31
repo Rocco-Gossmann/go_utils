@@ -86,3 +86,11 @@ func SecToTimePrint(secondCount float64) string {
 	mins -= hrs * 60
 	return fmt.Sprintf("%02d:%02d:%02d", int(hrs), int(mins), int(secs))
 }
+
+func If[T any](condition bool, true_res T, false_res T) T {
+	if condition {
+		return true_res
+	} else {
+		return false_res
+	}
+}
