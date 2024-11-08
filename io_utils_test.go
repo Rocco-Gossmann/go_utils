@@ -38,4 +38,15 @@ func TestCopyWithProgress(t *testing.T) {
 		assert.Equal(t, go_utils.If(false, 1, 2), 2, "If(false, 1, 2)  should have equaled 2")
 	})
 
+	t.Run("test Assert", func(t *testing.T) {
+
+		assert.NotPanics(t, func() {
+			go_utils.Assert(true, "this should always %s", "panic")
+		})
+
+		assert.PanicsWithValue(t, "this should always panic", func() {
+			go_utils.Assert(false, "this should always %s", "panic")
+		})
+	})
+
 }

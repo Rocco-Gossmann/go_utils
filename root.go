@@ -94,3 +94,9 @@ func If[T any](condition bool, true_res T, false_res T) T {
 		return false_res
 	}
 }
+
+func Assert(condition bool, msg string, msgargs ...any) {
+	if !condition {
+		Panicf(msg, msgargs...)
+	}
+}
